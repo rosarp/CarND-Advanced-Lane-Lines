@@ -127,7 +127,7 @@ Fit my lane lines with a 2nd order polynomial kinda like this:
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 I did this in code cell no. 11 in Nodebook with function `get_radius`. 
-TODO: vehicle position to be calculated.
+I calculated displacement in `search_around_poly` function itself, where I can access lane center value and image center value.
 
 ![alt text][image14]
 
@@ -153,8 +153,7 @@ Here's a [link to my video result](./processed-challenge_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Filling the polygon under the detected lines is yet to be completed. 
-Also implementing displacement of the vehicle is yet to be completed.
+In `search_around_poly` function, I found `left_fitx` & `right_fitx` to calculate top & bottom lines. I generated points with linspace and passed it to fillpolly to fill the area of lane.
 
 I mainly concentrated on filtering noise through applying color, gradient thresholds. 
 After that, I calculated hostogram data and marked starting points of left & right lanes.
@@ -164,3 +163,4 @@ It will fail with glass reflection from the windshield.
 I faced difficulty in getting polygon colored, which also took my lot of time.
 
 I will work on sliding window & will also use history to calculate from past frame's lane data to improve performance.
+Also, will improve lane line color.
